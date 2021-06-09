@@ -1,0 +1,37 @@
+{
+  "hotels": [
+    {
+      "id": 1,
+      "image": "https://v2umbapi.travelbag.co.uk/media/on2plo45/sgsinhtl043-pan-pacific-singapore-exterior.jpg?mode=crop&center=0.255,0.495&quality=80&width=384&height=256",
+      "title": "Pan Pacific Singapore",
+      "hotelRating": 5,
+      "description": "Pan Pacific Singapore is a contemporary hotel that rises up above the city. You can expect panoramic views of Singapore, as well as modern decor with geometrically inspired flourishes and clean curves. When it comes to rejuvenation, the outdoor swimming pool is ideal after you’ve treated yourself to a massage or body scrub  at St Gregory Spa.",
+      "userRating": 5,
+      "included": ["Breakfast", "Lunch", "Dinner"],
+      "totalPrice": 6800,
+      "perPersonPrice": 3400
+    },
+    {
+      "id": 2,
+      "image": "https://v2umbapi.travelbag.co.uk/media/on2plo45/sgsinhtl043-pan-pacific-singapore-exterior.jpg?mode=crop&center=0.255,0.495&quality=80&width=384&height=256",
+      "title": "Pan Pacific Singapore",
+      "hotelRating": 4,
+      "description": "Pan Pacific Singapore is a contemporary hotel that rises up above the city. You can expect panoramic views of Singapore, as well as modern decor with geometrically inspired flourishes and clean curves. When it comes to rejuvenation, the outdoor swimming pool is ideal after you’ve treated yourself to a massage or body scrub  at St Gregory Spa.",
+      "userRating": 3,
+      "included": ["Breakfast", "Lunch", "Dinner"],
+      "totalPrice": 6800,
+      "perPersonPrice": 3400
+    },
+    {
+      "id": 3,
+      "image": "https://v2umbapi.travelbag.co.uk/media/on2plo45/sgsinhtl043-pan-pacific-singapore-exterior.jpg?mode=crop&center=0.255,0.495&quality=80&width=384&height=256",
+      "title": "Pan Pacific Singapore",
+      "hotelRating": 5,
+      "description": "Pan Pacific Singapore is a contemporary hotel that rises up above the city. You can expect panoramic views of Singapore, as well as modern decor with geometrically inspired flourishes and clean curves. When it comes to rejuvenation, the outdoor swimming pool is ideal after you’ve treated yourself to a massage or body scrub  at St Gregory Spa.",
+      "userRating": 5,
+      "included": ["Breakfast", "Lunch", "Dinner"],
+      "totalPrice": 6800,
+      "perPersonPrice": 3400
+    }
+  ]
+}
