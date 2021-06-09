@@ -8,6 +8,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
+import Rating from "@material-ui/lab/Rating";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,35 +23,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function App() {
+export default function HotelCard({
+  image,
+  title,
+  hotelRating,
+  description,
+  userRating,
+  included,
+  totalPrice,
+  perPersonPrice,
+}) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
+      <CardMedia className={classes.media} image={image} title={title} />
+      <CardHeader />
       <CardContent>
+        <Typography variant="h5" color="textSecondary" component="p">
+          {title}
+        </Typography>
+        <Rating name="read-only" value={hotelRating} readOnly />
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing></CardActions>
     </Card>
   );
 }
-
-export default App;
