@@ -7,6 +7,7 @@
       "hotelRating": 5,
       "description": "City center, Singapore",
       "userRating": 9.8,
+      "reviews": 97,
       "included": ["Breakfast", "Lunch", "Dinner"],
       "totalPrice": 6800,
       "perPersonPrice": 3400
@@ -18,7 +19,8 @@
       "hotelRating": 4,
       "description": "Bur Dubai Area, Dubai",
       "userRating": 9.4,
-      "included": ["Breakfast", "Lunch", "Dinner"],
+      "reviews": 9104,
+      "included": ["Room only"],
       "totalPrice": 4800,
       "perPersonPrice": 2400
     },
@@ -29,6 +31,43 @@
       "hotelRating": 2,
       "description": "Water front, Singapore",
       "userRating": 7.2,
+      "reviews": 7,
+      "included": ["Breakfast", "Lunch", "Dinner"],
+      "totalPrice": 6800,
+      "perPersonPrice": 3400
+    },
+    {
+      "id": 4,
+      "image": "https://v2umbapi.travelbag.co.uk/media/on2plo45/sgsinhtl043-pan-pacific-singapore-exterior.jpg?mode=crop&center=0.255,0.495&quality=80&width=384&height=256",
+      "title": "Pan Pacific Singapore",
+      "hotelRating": 5,
+      "description": "City center, Singapore",
+      "userRating": 9.8,
+      "reviews": 23,
+      "included": ["Breakfast", "Lunch", "Dinner"],
+      "totalPrice": 6800,
+      "perPersonPrice": 3400
+    },
+    {
+      "id": 5,
+      "image": "https://v2umbapi.travelbag.co.uk/media/on2plo45/sgsinhtl043-pan-pacific-singapore-exterior.jpg?mode=crop&center=0.255,0.495&quality=80&width=384&height=256",
+      "title": "Pan Pacific Singapore",
+      "hotelRating": 4,
+      "description": "Bur Dubai Area, Dubai",
+      "userRating": 8.4,
+      "reviews": 2345,
+      "included": ["Room only"],
+      "totalPrice": 4800,
+      "perPersonPrice": 2400
+    },
+    {
+      "id": 6,
+      "image": "https://v2umbapi.travelbag.co.uk/media/on2plo45/sgsinhtl043-pan-pacific-singapore-exterior.jpg?mode=crop&center=0.255,0.495&quality=80&width=384&height=256",
+      "title": "Pan Pacific Singapore",
+      "hotelRating": 2,
+      "description": "Water front, Singapore",
+      "userRating": 7.2,
+      "reviews": 256,
       "included": ["Breakfast", "Lunch", "Dinner"],
       "totalPrice": 6800,
       "perPersonPrice": 3400

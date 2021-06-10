@@ -2,9 +2,8 @@ import "./App.css";
 import React from "react";
 import HotelCard from "./components/hotelCard";
 import { getHotels } from "./actions/dnataActions";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import StackGrid from "react-stack-grid";
+import Mobile from "./helpers/mobile";
 
 function App() {
   // const [hotel, setHotel] = React.useState({
@@ -29,6 +28,10 @@ function App() {
 
   const [hotelResults, sethotelResults] = React.useState([]);
 
+  const cardWidth = Mobile() ? "98%" : 325;
+
+  console.log(cardWidth);
+
   React.useEffect(() => {
     async function fetchData() {
       try {
@@ -41,7 +44,7 @@ function App() {
     fetchData();
   }, []);
   return (
-    <StackGrid columnWidth={300}>
+    <StackGrid columnWidth={cardWidth} gutterWidth={10} gutterHeight={10}>
       {hotelResults.map((hotel, index) => (
         <HotelCard
           key={hotel.id}
@@ -50,6 +53,7 @@ function App() {
           hotelRating={hotel.hotelRating}
           description={hotel.description}
           userRating={hotel.userRating}
+          reviews={hotel.reviews}
           included={hotel.included}
           totalPrice={hotel.totalPrice}
           perPersonPrice={hotel.perPersonPrice}
