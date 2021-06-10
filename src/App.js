@@ -17,6 +17,7 @@ function App() {
   //   totalPrice: 0,
   //   perPersonPrice: 0,
   // });
+
   // const [image, setImage] = React.useState("./public/image-not-found.jpg");
   // const [title, setTitle] = React.useState("hotel");
   // const [hotelRating, setHotelRatings] = React.useState(0);
