@@ -10,6 +10,7 @@ import { orange } from "@material-ui/core/colors";
 import Rating from "@material-ui/lab/Rating";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,11 +22,19 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
   },
   priceContainer: {
-    padding: 10,
+    padding: 20,
   },
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9
+  },
+  userRating: {
+    backgroundColor: "#419ed5",
+    width: 50,
+    color: "white",
+    padding: 8,
+    marginTop: 10,
+    marginBottom: 10,
   },
   priceButton: {
     backgroundColor: orange[500],
@@ -50,38 +59,32 @@ export default function HotelCard({
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={image} title={title} />
-      <CardHeader />
+
       <CardContent className={classes.cardContent}>
         <Typography variant="h5" color="textSecondary" component="p">
-          {title}
-        </Typography>
-        <Rating name="read-only" value={hotelRating} readOnly />
-        <Typography variant="body2" color="textSecondary" component="p">
-          {description}
+          <Box>{title}</Box>
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {userRating}
-        </Typography>
+          <Rating name="read-only" value={hotelRating} readOnly />
 
-        <Typography variant="body2" color="textSecondary" component="p">
-          Price includes:
+          <Box fontSize={16}>{description}</Box>
+
+          <Box fontSize={20} className={classes.userRating}>
+            {userRating}
+          </Box>
+
+          <Box fontStyle="italic">Price includes:</Box>
+          {included.map((item, index) => (
+            <Box>{item}</Box>
+          ))}
         </Typography>
-        {included.map((item, index) => (
-          <Typography variant="body2" color="textSecondary" component="p">
-            {item}
-          </Typography>
-        ))}
       </CardContent>
       <Grid className={classes.priceContainer} container spacing={2}>
         <Grid item xs={6}>
           <Typography variant="body2" color="textSecondary" component="p">
-            Total price from
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            £ {totalPrice}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            (Per Person £{perPersonPrice})
+            <Box fontSize={10}>Total price from</Box>
+            <Box color={orange} fontSize={22}>£{totalPrice}</Box>
+            <Box fontSize={12}>(Per Person £{perPersonPrice})</Box>
           </Typography>
         </Grid>
         <Grid item xs={6}>
