@@ -2,6 +2,8 @@ import "./App.css";
 import React from "react";
 import HotelCard from "./components/hotelCard";
 import { getHotels } from "./actions/dnataActions";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 function App() {
   // const [hotel, setHotel] = React.useState({
@@ -27,27 +29,33 @@ function App() {
 
   React.useEffect(() => {
     async function fetchData() {
-      let hotelsData = await getHotels();
-      sethotelResults(hotelsData);
+      try {
+        let hotelsData = await getHotels();
+        sethotelResults(hotelsData);
+      } catch (err) {
+        console.log(err);
+      }
     }
     fetchData();
   }, []);
   return (
-    <React.Fragment>
+    <Grid container spacing={3}>
       {hotelResults.map((hotel, index) => (
-        <HotelCard
-          key={hotel.id}
-          image={hotel.image}
-          title={hotel.title}
-          hotelRating={hotel.hotelRating}
-          description={hotel.description}
-          userRating={hotel.userRating}
-          included={hotel.included}
-          totalPrice={hotel.totalPrice}
-          perPersonPrice={hotel.perPersonPrice}
-        />
+        <Grid item xs={12} sm={6} lg={3} >
+          <HotelCard
+            key={hotel.id}
+            image={hotel.image}
+            title={hotel.title}
+            hotelRating={hotel.hotelRating}
+            description={hotel.description}
+            userRating={hotel.userRating}
+            included={hotel.included}
+            totalPrice={hotel.totalPrice}
+            perPersonPrice={hotel.perPersonPrice}
+          />
+        </Grid>
       ))}
-    </React.Fragment>
+    </Grid>
   );
 }
 
