@@ -4,6 +4,7 @@ import HotelCard from "./components/hotelCard";
 import { getHotels } from "./actions/dnataActions";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import StackGrid from "react-stack-grid";
 
 function App() {
   // const [hotel, setHotel] = React.useState({
@@ -39,23 +40,21 @@ function App() {
     fetchData();
   }, []);
   return (
-    <Grid container spacing={3}>
+    <StackGrid columnWidth={300}>
       {hotelResults.map((hotel, index) => (
-        <Grid item xs={12} sm={6} lg={3} >
-          <HotelCard
-            key={hotel.id}
-            image={hotel.image}
-            title={hotel.title}
-            hotelRating={hotel.hotelRating}
-            description={hotel.description}
-            userRating={hotel.userRating}
-            included={hotel.included}
-            totalPrice={hotel.totalPrice}
-            perPersonPrice={hotel.perPersonPrice}
-          />
-        </Grid>
+        <HotelCard
+          key={hotel.id}
+          image={hotel.image}
+          title={hotel.title}
+          hotelRating={hotel.hotelRating}
+          description={hotel.description}
+          userRating={hotel.userRating}
+          included={hotel.included}
+          totalPrice={hotel.totalPrice}
+          perPersonPrice={hotel.perPersonPrice}
+        />
       ))}
-    </Grid>
+    </StackGrid>
   );
 }
 
