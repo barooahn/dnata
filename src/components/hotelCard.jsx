@@ -28,17 +28,13 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingTop: "56.25%", // 16:9
   },
-  includesContainer: {
-    display: "flex",
+  userReviewContainer: {
+    borderBottom: "1px solid rgb(212, 212, 212)",
     paddingTop: 15,
-  },
-  includesIcon: {
-    alignItems: "baseline",
-    flexDirection: "row",
-    paddingRight: 20,
-  },
-  includesText: {
-    alignItems: "baseline",
+    paddingBottom: 15,
+    marginBottom: 15,
+    display: "flex",
+    alignItems: "center",
     flexDirection: "row",
   },
   userRating: {
@@ -46,31 +42,30 @@ const useStyles = makeStyles((theme) => ({
     width: 35,
     color: "white",
     padding: 5,
-    marginTop: 10,
-    marginBottom: 10,
     textAlign: "center",
+  },
+  emoji: {
+    color: "#419ed5",
+    paddingLeft: 5,
+  },
+  reviews: {
+    color: "#419ed5",
+    paddingLeft: 5,
+  },
+  includesContainer: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
+    paddingTop: 15,
+  },
+  includesIcon: {
+    paddingRight: 20,
   },
   priceButton: {
     backgroundColor: orange[500],
     padding: 10,
     borderRadius: 1,
     float: "right",
-  },
-  userReviewContainer: {
-    borderBottom: "1px solid rgb(212, 212, 212)",
-    marginBottom: 20,
-    marginTop: 5,
-  },
-
-  emoji: {
-    paddingTop: 10,
-    color: "#419ed5",
-    textAlign: "center",
-  },
-  reviews: {
-    paddingTop: 17,
-    marginLeft: -15,
-    color: "#419ed5",
   },
 }));
 
@@ -99,21 +94,16 @@ export default function HotelCard({
           <Rating name="read-only" value={hotelRating} readOnly />
 
           <Box fontSize={16}>{description}</Box>
-          <Grid container spacing={2} className={classes.userReviewContainer}>
-            <Grid item xs={2}>
-              <Box fontSize={20} className={classes.userRating}>
-                {userRating}
-              </Box>
-            </Grid>
-            <Grid item xs={2}>
-              <Mood className={classes.emoji} fontSize="large" />
-            </Grid>
-            <Grid item xs={6}>
-              <Box fontSize={14} className={classes.reviews}>
-                (Based on {reviews} reviews)
-              </Box>
-            </Grid>
-          </Grid>
+          <div className={classes.userReviewContainer}>
+            <Box fontSize={20} className={classes.userRating}>
+              {userRating}
+            </Box>
+            <Mood className={classes.emoji} fontSize="large" />
+            <Box fontSize={14} className={classes.reviews}>
+              (Based on {reviews} reviews)
+            </Box>
+          </div>
+
           <Box fontSize={15} fontStyle="italic">
             Price includes:
           </Box>
@@ -132,7 +122,9 @@ export default function HotelCard({
             <Box color={orange[500]} fontSize={22} fontWeight={700}>
               £{totalPrice}
             </Box>
-            <Box fontSize={12}>(Per Person <b>£{perPersonPrice}</b>)</Box>
+            <Box fontSize={12}>
+              (Per Person <b>£{perPersonPrice}</b>)
+            </Box>
           </Typography>
         </Grid>
         <Grid item xs={6}>
