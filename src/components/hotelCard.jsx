@@ -69,48 +69,48 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function HotelCard({
-  image,
-  title,
-  hotelRating,
-  description,
-  userRating,
-  reviews,
-  included,
-  totalPrice,
-  perPersonPrice,
-}) {
+export default function HotelCard({ hotel }) {
   const classes = useStyles();
+
+  const handelHotelPage = (hotel) => {
+    console.log(`redirect to hotel page with ${JSON.stringify(hotel)}`);
+  };
 
   return (
     <Card className={classes.root}>
-      <CardMedia className={classes.media} image={image} title={title} />
+      <CardMedia
+        className={classes.media}
+        image={hotel.image || "../image-not-found.jpg"}
+        title={hotel.title}
+      />
 
       <CardContent className={classes.cardContent}>
         <Typography variant="h6" color="textSecondary" component="h5">
-          <Box color={blue[700]}>{title}</Box>
+          <Box color={blue[700]}>{hotel.title || "Title here"}</Box>
         </Typography>
         <Typography variant="body2" color="textSecondary" component="div">
-          <Rating name="read-only" value={hotelRating} readOnly />
+          <Rating name="read-only" value={hotel.hotelRating || 0} readOnly />
 
-          <Box fontSize={16}>{description}</Box>
+          <Box fontSize={16}>{hotel.description}</Box>
           <div className={classes.userReviewContainer}>
             <Box fontSize={20} className={classes.userRating}>
-              {userRating}
+              {hotel.userRating || 0}
             </Box>
             <Mood className={classes.emoji} fontSize="large" />
             <Box fontSize={14} className={classes.reviews}>
-              (Based on {reviews} reviews)
+              (Based on {hotel.reviews || 0} reviews)
             </Box>
           </div>
 
           <Box fontSize={15} fontStyle="italic">
             Price includes:
           </Box>
-          {included.map((item, index) => (
-            <div className={classes.includesContainer}>
+          {hotel.included.map((item, index) => (
+            <div key={index} className={classes.includesContainer}>
               <Restaurant className={classes.includesIcon} />
-              <span className={classes.includesText}>{item}</span>
+              <span className={classes.includesText}>
+                {item || "item here"}
+              </span>
             </div>
           ))}
         </Typography>
@@ -120,10 +120,10 @@ export default function HotelCard({
           <Typography variant="body2" color="textSecondary" component="div">
             <Box fontSize={12}>Total price from</Box>
             <Box color={orange[500]} fontSize={22} fontWeight={700}>
-              £{totalPrice}
+              £{hotel.totalPrice || 0}
             </Box>
             <Box fontSize={12}>
-              (Per Person <b>£{perPersonPrice}</b>)
+              (Per Person <b>£{hotel.perPersonPrice || 0}</b>)
             </Box>
           </Typography>
         </Grid>
@@ -131,7 +131,8 @@ export default function HotelCard({
           <Button
             className={classes.priceButton}
             variant="contained"
-            color="primary">
+            color="primary"
+            onClick={() => handelHotelPage(hotel)}>
             View More
           </Button>
         </Grid>

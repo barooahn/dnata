@@ -71,6 +71,18 @@
       "included": ["Breakfast", "Lunch", "Dinner"],
       "totalPrice": 6800,
       "perPersonPrice": 3400
+    },
+    {
+      "id": 7,
+      "image": "",
+      "title": "",
+      "hotelRating": null,
+      "description": "",
+      "userRating": null,
+      "reviews": null,
+      "included": [],
+      "totalPrice": null,
+      "perPersonPrice": null
     }
   ]
 }
