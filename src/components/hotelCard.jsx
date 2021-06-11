@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     backgroundColor: "white",
   },
-  priceContainer: {
-    padding: 20,
-  },
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9
@@ -60,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
   },
   includesIcon: {
     paddingRight: 20,
+  },
+  priceContainer: {
+    padding: 20,
   },
   priceButton: {
     backgroundColor: orange[500],

@@ -22,7 +22,11 @@ function App() {
     fetchData();
   }, []);
   return (
-    <StackGrid columnWidth={cardWidth} gutterWidth={10} gutterHeight={10}>
+    <StackGrid
+      className="hotels-container"
+      columnWidth={cardWidth}
+      gutterWidth={10}
+      gutterHeight={10}>
       {hotelResults.map((hotel, index) => (
         <HotelCard key={hotel.id} hotel={hotel} />
       ))}
