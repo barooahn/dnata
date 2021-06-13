@@ -1,3 +1,8 @@
+# Instrustions to run
+yarn install
+json-server --watch db.json --port 5000
+yarn start
+
 ## Things to add:
 
 - Loading progress
