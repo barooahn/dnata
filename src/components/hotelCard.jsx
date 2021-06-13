@@ -70,6 +70,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function HotelCard({ hotel }) {
+  const {
+    id,
+    image,
+    title,
+    description,
+    hotelRating,
+    userRating,
+    reviews,
+    included,
+    totalPrice,
+    perPersonPrice,
+  } = hotel;
+
   const classes = useStyles();
 
   const handelHotelPage = (hotel) => {
@@ -79,36 +92,54 @@ export default function HotelCard({ hotel }) {
   return (
     <Card className={classes.root}>
       <CardMedia
+      data-testid={`image-${id}`}
         className={classes.media}
-        image={hotel.image || "../image-not-found.jpg"}
-        title={hotel.title}
+        image={image || "../image-not-found.jpg"}
+        title={title}
       />
 
       <CardContent className={classes.cardContent}>
         <Typography variant="h6" color="textSecondary" component="h5">
-          <Box color={blue[700]}>{hotel.title || "Title here"}</Box>
+          <Box data-testid={`title-${id}`} color={blue[700]}>
+            {title || "Title here"}
+          </Box>
         </Typography>
         <Typography variant="body2" color="textSecondary" component="div">
-          <Rating name="read-only" value={hotel.hotelRating || 0} readOnly />
+          <Rating
+            name="read-only"
+            data-testid={`hotelRating-${id}`}
+            value={hotelRating || 0}
+            readOnly
+          />
 
-          <Box fontSize={16}>{hotel.description}</Box>
+          <Box data-testid={`description-${id}`} fontSize={16}>
+            {description}
+          </Box>
           <div className={classes.userReviewContainer}>
-            <Box fontSize={20} className={classes.userRating}>
-              {hotel.userRating || 0}
+            <Box
+              data-testid={`userRating-${id}`}
+              fontSize={20}
+              className={classes.userRating}>
+              {userRating || 0}
             </Box>
             <Mood className={classes.emoji} fontSize="large" />
-            <Box fontSize={14} className={classes.reviews}>
-              (Based on {hotel.reviews || 0} reviews)
+            <Box
+              data-testid={`reviews-${id}`}
+              fontSize={14}
+              className={classes.reviews}>
+              (Based on {reviews || 0} reviews)
             </Box>
           </div>
 
           <Box fontSize={15} fontStyle="italic">
             Price includes:
           </Box>
-          {hotel.included.map((item, index) => (
+          {included.map((item, index) => (
             <div key={index} className={classes.includesContainer}>
               <Restaurant className={classes.includesIcon} />
-              <span className={classes.includesText}>
+              <span
+                data-testid={`included-${id}-${index}`}
+                className={classes.includesText}>
                 {item || "item here"}
               </span>
             </div>
@@ -119,11 +150,15 @@ export default function HotelCard({ hotel }) {
         <Grid item xs={6}>
           <Typography variant="body2" color="textSecondary" component="div">
             <Box fontSize={12}>Total price from</Box>
-            <Box color={orange[500]} fontSize={22} fontWeight={700}>
-              £{hotel.totalPrice || 0}
+            <Box
+              data-testid={`totalPrice-${id}`}
+              color={orange[500]}
+              fontSize={22}
+              fontWeight={700}>
+              £{totalPrice || 0}
             </Box>
-            <Box fontSize={12}>
-              (Per Person <b>£{hotel.perPersonPrice || 0}</b>)
+            <Box data-testid={`perPersonPrice-${id}`} fontSize={12}>
+              (Per Person <b>£{perPersonPrice || 0}</b>)
             </Box>
           </Typography>
         </Grid>
